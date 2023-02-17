@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Crear contacto {% endblock title %}
+
+{% block styles %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="alert-success"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+<span class="aux-btns-form"> <a href="{{ url_for ('servicios') }}">Volver atras</a></span>
+<form action="{{ url_for ('create') }}" method="POST">
+
+        <table>
+            
+        </table>
+        <div class="btn-wrapper">
+        <input type="submit" value="Enviar" class="btn-send"/>
+        </div>
+    </form>
+{% endblock content %}

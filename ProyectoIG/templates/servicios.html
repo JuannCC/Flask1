@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto {% endblock title %}
+
+{% block content %}
+<h1>CONTACTOS</h1>
+
+    {% include 'servicios/partials/search.html' %}
+    {% include 'servicios/partials/by_initial.html'%}
+
+    {% from "_macro.html" import render_field %}
+
+    <form>
+        {{ render_field(form.username) }}
+    </form>
+
+    <span class="aux-btns"> <a href="{{ url_for ('servicios') }}">Lista general</a> <a href="/create">Añadir</a></span>
+    <ul class='list'>
+        {% for servicio in servicios  %}
+            <li>{{service}} 
+            <span>
+                <a href="{{ url_for ('servicios_view')  }}" class="btn btn-detail">Ver</a>
+                <a href="{{ url_for ('servicios_edit')  }}" class="btn btn-edit">Editar</a>
+                <a href="{{ url_for ('servicios_delete')  }}" class="btn btn-delete">Borrar</a>
+            </span>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endblock content %}
